@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: delivery-core-service-nodeport
+spec:
+  type: NodePort
+  selector:
+    app: delivery-core-service
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30015
