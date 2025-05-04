@@ -23,7 +23,7 @@ spec:
         - name: regcred
       containers:
         - name: delivery-core-service
-          image: sekretaria/corelab17:latest
+          image: sekretaria/corelab18:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080

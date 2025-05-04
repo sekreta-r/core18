@@ -16,13 +16,19 @@ spec:
         - name: regcred
       containers:
         - name: delivery-join-service
-          image: sekretaria/corelab17v1:latest
+          image: sekretaria/join18:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8082
           envFrom:
             - configMapRef:
                 name: delivery-config
+          env:
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: redis-secret
+                  key: redis-password
           livenessProbe:
             httpGet:
               path: /healthcheck
